@@ -1,0 +1,35 @@
+spring:
+  application:
+    name: oauth2-server
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    password: 8840580
+    username: root
+#    只有oauth2框架识别这个属性   但是datasource没有这个属性
+    jdbc-url: jdbc:mysql://127.0.0.1:3306/oath2?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    hikari:
+      minimum-idle: 5
+      idle-timeout: 600000
+      maximum-pool-size: 10
+      auto-commit: true
+      pool-name: MyHikariCP
+      max-lifetime: 1800000
+      connection-timeout: 30000
+      connection-test-query: SELECT 1
+
+
+server:
+  port: 80
+
+#mybatisplus
+mybatis-plus:
+  global-config:
+    db-config:
+      id-type: id_worker
+      capital-mode: true
+
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+  mapper-locations: classpath:/mapper/*Mapper.xml
